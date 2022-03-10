@@ -15,10 +15,24 @@ knit: (function(inputFile, encoding) {
 ```{r setup, include=FALSE}
 library(knitr)
 library(tidyverse)
-library(plotly)
-library(ggmap)
+library(DT)
+
 #set chunk and figure default options
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, tidy = TRUE)
+```
+
+```{r}
+menu <- read_csv("data/menu.csv")
+
+menu %>% datatable(
+  caption = "McDonald's Food Menu", 
+  filter = "bottom",
+  options = list(
+  initComplete = JS(
+    "function(settings, json) {",
+    "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff'});",
+    "}")
+))
 ```
 
 
