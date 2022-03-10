@@ -12,6 +12,8 @@ knit: (function(inputFile, encoding) {
 
 <hr/>
 
+The data set is of McDonald's full menu and was retrieved from kaggle.com. I simply want to provide the menu data in tabular form that can be searched and filtered for specific information. The header is styled different form the rest of the table to clearly display column information. 
+
 ```{r setup, include=FALSE}
 library(knitr)
 library(tidyverse)
@@ -26,11 +28,10 @@ menu <- read_csv("data/menu.csv")
 
 menu %>% datatable(
   caption = "McDonald's Food Menu", 
-  filter = "bottom",
   options = list(
   initComplete = JS(
     "function(settings, json) {",
-    "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff'});",
+    "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff'});$('.main-container').css({'maxWidth': 'unset'})",
     "}")
 ))
 ```
