@@ -1,0 +1,30 @@
+---
+title: "Tables"
+author: "Phong D. Nguyen"
+date: "3/10/2022"
+output: html_document
+knit: (function(inputFile, encoding) {
+  outDir <- 'docs';
+  rmarkdown::render(inputFile, 
+                    encoding=encoding,
+                    output_file=file.path(dirname(inputFile), outDir, 'index.html'))})
+---
+
+<hr/>
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tidyverse)
+library(plotly)
+library(ggmap)
+#set chunk and figure default options
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, tidy = TRUE)
+```
+
+
+<hr/>
+
+## Appendix
+
+```{r show-code, ref.label = all_labels(), echo = TRUE, eval = FALSE}
+```
